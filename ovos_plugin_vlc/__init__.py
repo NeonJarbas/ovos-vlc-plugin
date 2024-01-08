@@ -3,7 +3,7 @@ import time
 import vlc
 from ovos_bus_client.message import Message
 
-from ovos_plugin_manager.templates.media import MediaBackend
+from ovos_plugin_manager.templates.media import MediaBackend, AudioPlayerBackend, VideoPlayerBackend
 from ovos_utils.log import LOG
 
 
@@ -154,11 +154,11 @@ class VlcBaseService(MediaBackend):
         self.player.set_time(new_time)
 
 
-class VLCOCPAudioService(VlcBaseService):
+class VLCOCPAudioService(AudioPlayerBackend, VlcBaseService):
     def __init__(self, config, bus=None):
         super().__init__(config, bus, video=False)
 
 
-class VLCOCPVideoService(VlcBaseService):
+class VLCOCPVideoService(VideoPlayerBackend, VlcBaseService):
     def __init__(self, config, bus=None):
         super().__init__(config, bus, video=True)
