@@ -50,8 +50,8 @@ def required(requirements_file):
                 if pkg.strip() and not pkg.startswith("#")]
 
 
-PLUGIN_ENTRY_POINT = 'ovos-media-audio-plugin-vlc=ovos_plugin_vlc.VLCOCPAudioService'
-VIDEO_ENTRY_POINT = 'ovos-media-video-plugin-vlc=ovos_plugin_vlc.VLCOCPVideoService'
+PLUGIN_ENTRY_POINT = 'ovos-media-audio-plugin-vlc=ovos_plugin_vlc:VLCOCPAudioService'
+VIDEO_ENTRY_POINT = 'ovos-media-video-plugin-vlc=ovos_plugin_vlc:VLCOCPVideoService'
 
 setup(
     name='ovos-media-plugin-vlc',

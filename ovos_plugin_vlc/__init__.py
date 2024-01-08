@@ -29,7 +29,6 @@ class VlcBaseService(MediaBackend):
 
         self.config = config
         self.bus = bus
-        self.normal_volume = None
         self.low_volume = self.config.get('low_volume', 30)
         self._playback_time = 0
         self.player.audio_set_volume(100)
@@ -152,6 +151,23 @@ class VlcBaseService(MediaBackend):
         if new_time < 0:
             new_time = 0
         self.player.set_time(new_time)
+
+    def lower_volume(self):
+        """Lower volume.
+
+        This method is used to implement audio ducking. It will be called when
+        OpenVoiceOS is listening or speaking to make sure the media playing isn't
+        interfering.
+        """
+        self.player.audio_set_volume(self.low_volume)
+
+    def restore_volume(self):
+        """Restore normal volume.
+
+        Called when to restore the playback volume to previous level after
+        OpenVoiceOS has lowered it using lower_volume().
+        """
+        self.player.audio_set_volume(100)
 
 
 class VLCOCPAudioService(AudioPlayerBackend, VlcBaseService):
