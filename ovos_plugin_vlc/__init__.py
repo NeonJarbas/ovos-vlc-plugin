@@ -100,7 +100,7 @@ class VlcBaseService(MediaBackend):
         ret = {}
         t = self.player.get_media()
         if t:
-            ret['album'] = t.get_meta(vlc.Meta.MusicAlbum)
+            ret['album'] = t.get_meta(vlc.Meta.Album)
             ret['artist'] = t.get_meta(vlc.Meta.Artist)
             ret['title'] = t.get_meta(vlc.Meta.Title)
         return ret
