@@ -33,6 +33,8 @@ class VlcBaseService(MediaBackend):
         self._playback_time = 0
         self.player.audio_set_volume(100)
         self._last_sync = 0
+        if video and self.config.get("fullscreen", True):
+            self.player.toggle_fullscreen()
 
     # vlc internals
     @property
@@ -75,6 +77,7 @@ class VlcBaseService(MediaBackend):
         """ Play playlist using vlc. """
         LOG.debug('VLCService Play')
         track = self.instance.media_new(self._now_playing)
+        track.get_mrl()
         self.player.set_media(track)
         self.player.play()
 
