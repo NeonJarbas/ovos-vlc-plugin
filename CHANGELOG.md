@@ -1,5 +1,9 @@
 # Changelog
 
+## [V0.1.0a2](https://github.com/NeonJarbas/ovos-vlc-plugin/tree/V0.1.0a2) (2024-01-08)
+
+[Full Changelog](https://github.com/NeonJarbas/ovos-vlc-plugin/compare/V0.0.2a7...V0.1.0a2)
+
 ## [V0.0.2a7](https://github.com/NeonJarbas/ovos-vlc-plugin/tree/V0.0.2a7) (2024-01-08)
 
 [Full Changelog](https://github.com/NeonJarbas/ovos-vlc-plugin/compare/V0.0.2a6...V0.0.2a7)
